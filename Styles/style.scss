@@ -1,0 +1,18 @@
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: saddlebrown;
+}
+
+.container {
+    @extend %flex-center;
+}
+
+.wraper {
+    @extend %flex-center;
+    flex-direction: column;
+}
