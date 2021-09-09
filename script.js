@@ -2,7 +2,7 @@ const inputName = document.getElementById('input-name');
 const inputDate = document.getElementById('input-date');
 const inputAmount = document.getElementById('input-amount');
 const addExpenseButton = document.getElementById('add-expense');
-const table = document.getElementById('table');
+const tableBody = document.getElementById('table-body');
 
 addExpenseButton.addEventListener('click', e => {
     e.preventDefault();
@@ -12,7 +12,7 @@ addExpenseButton.addEventListener('click', e => {
 
 function addExpense () {
     
-    let tableRow = table.insertRow();
+    let tableRow = tableBody.insertRow();
     nameCell = tableRow.insertCell(0);
     dateCell = tableRow.insertCell(1);
     amountCell = tableRow.insertCell(2);

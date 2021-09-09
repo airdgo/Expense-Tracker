@@ -13,24 +13,26 @@
         <div class="wraper">
             <header>
                 <h1>Expense Tracker</h1>
+                <form>
+                    <label>Name:</label>
+                    <input id="input-name" type="text" placeholder="Where was the expense made?">
+                    <label>Date:</label>
+                    <input id="input-date" type="date" placeholder="mm/dd/yyyy">
+                    <label>Amount:</label>
+                    <input id="input-amount" type="number">
+                    <input id="add-expense" type="submit" value="Add Expense">
+                </form>
             </header>
-            <form>
-                <label>Name:</label>
-                <input id="input-name" type="text" placeholder="Where was the expense made?">
-                <label>Date:</label>
-                <input id="input-date" type="date" placeholder="mm/dd/yyyy">
-                <label>Amount:</label>
-                <input id="input-amount" type="number">
-                <input id="add-expense" type="submit" value="Add Expense">
-            </form>
+            
             
             <table id="table">
-                <tr>
+                <thead>
                     <th>Name</th>
                     <th>Date</th>
                     <th>Amount</th>
                     <th></th>
-                </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
             </table>
         </div>
     </div>
