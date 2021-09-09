@@ -12,21 +12,30 @@ addExpenseButton.addEventListener('click', e => {
 
 function addExpense () {
     
-    insertName();
+    let tableRow = table.insertRow();
+    nameCell = tableRow.insertCell(0);
+    dateCell = tableRow.insertCell(1);
+    amountCell = tableRow.insertCell(2);
+    deleteButtonCell = tableRow.insertCell(3);
+
+    nameCell.innerText = inputName.value;
+    dateCell.innerText = inputDate.value;
+    amountCell.innerText = inputAmount.value;
+    deleteButtonFunction();
 
     resetInput();
 
 }
 
-function insertName() {
-
-    let tableRow = table.insertRow();
-    nameCell = tableRow.insertCell(0);
-    dateCell = tableRow.insertCell(1);
-    amountCell = tableRow.insertCell(2);
-    nameCell.innerText = inputName.value;
-    dateCell.innerText = inputDate.value;
-    amountCell.innerText = inputAmount.value;
+const deleteButtonFunction = () => {
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = 'X';
+    deleteButton.onclick = () => {
+        var td = event.target.parentNode; 
+        var tr = td.parentNode;
+        tr.parentNode.removeChild(tr);
+    };
+    deleteButtonCell.appendChild(deleteButton);
 }
 
 const resetInput = () => {
