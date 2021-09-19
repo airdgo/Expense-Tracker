@@ -3,15 +3,19 @@ const inputDate = document.getElementById('input-date');
 const inputAmount = document.getElementById('input-amount');
 const addExpenseButton = document.getElementById('add-expense');
 const tableBody = document.getElementById('table-body');
+const noExpenses = document.getElementById('no-expenses');
 
 addExpenseButton.addEventListener('click', e => {
     e.preventDefault();
-
-    addExpense();
+    if (inputName.value == '' || inputDate.value == '' || inputAmount.value == '') {
+        alert('All filds must be completed');
+    } else {
+        addExpense();
+    }
 })
 
-function addExpense () {
-    
+function addExpense() {
+
     let tableRow = tableBody.insertRow();
     nameCell = tableRow.insertCell(0);
     dateCell = tableRow.insertCell(1);
@@ -21,17 +25,16 @@ function addExpense () {
     nameCell.innerText = inputName.value;
     dateCell.innerText = inputDate.value;
     amountCell.innerText = inputAmount.value;
+
     deleteButtonFunction();
-
     resetInput();
-
 }
 
 const deleteButtonFunction = () => {
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'X';
     deleteButton.onclick = () => {
-        var td = event.target.parentNode; 
+        var td = event.target.parentNode;
         var tr = td.parentNode;
         tr.parentNode.removeChild(tr);
     };
@@ -43,3 +46,7 @@ const resetInput = () => {
     inputDate.value = "";
     inputAmount.value = "";
 }
+
+// const noExpensesAdded = () => {
+//     noExpenses.classList.add('default');
+// }
