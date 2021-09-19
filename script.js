@@ -3,7 +3,6 @@ const inputDate = document.getElementById('input-date');
 const inputAmount = document.getElementById('input-amount');
 const addExpenseButton = document.getElementById('add-expense');
 const tableBody = document.getElementById('table-body');
-const noExpenses = document.getElementById('no-expenses');
 
 addExpenseButton.addEventListener('click', e => {
     e.preventDefault();
@@ -15,7 +14,6 @@ addExpenseButton.addEventListener('click', e => {
 })
 
 function addExpense() {
-
     let tableRow = tableBody.insertRow();
     nameCell = tableRow.insertCell(0);
     dateCell = tableRow.insertCell(1);
@@ -24,14 +22,16 @@ function addExpense() {
 
     nameCell.innerText = inputName.value;
     dateCell.innerText = inputDate.value;
-    amountCell.innerText = inputAmount.value;
+    amountCell.innerText = '$' + inputAmount.value;
 
+    document.getElementById('no-expense').classList.add('active');
     deleteButtonFunction();
     resetInput();
 }
 
 const deleteButtonFunction = () => {
     const deleteButton = document.createElement('button');
+    deleteButton.id = 'delete-button';
     deleteButton.innerText = 'X';
     deleteButton.onclick = () => {
         var td = event.target.parentNode;
@@ -46,7 +46,3 @@ const resetInput = () => {
     inputDate.value = "";
     inputAmount.value = "";
 }
-
-// const noExpensesAdded = () => {
-//     noExpenses.classList.add('default');
-// }
