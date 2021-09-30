@@ -109,7 +109,7 @@ tableBody.addEventListener("click", (e) => {
 		if (expenseTrackerObj.length != 0) {
 			element.parentElement.parentElement.classList.add("remove-row");
 		} else {
-			location.reload();
+			tableBody.innerHTML = `<tr><td colspan="4"><p>No expenses added yet</p></td></tr>`;
 		}
 	}
 });
